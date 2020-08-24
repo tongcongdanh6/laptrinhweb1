@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Đăng nhập hoặc đăng ký</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script src="plugins/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            height: 100vh;
+            margin: 0;
+            font-family: 'Lucida Grande', Tahoma, Verdana, Arial, Sans-serif;
+            line-height: 1.28;
+        }
+        .flex {
+            display: flex;
+        }
+        
+        .container {
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+        }
+        
+        .fb-header {
+            height: 80px;
+            background-color: #3b5998;
+        }
+        
+        .header-content-wrapper {
+            width: 65%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .fb-login-form {
+            width: 45%;
+            display: flex;
+        }
+        
+        .input-group-login {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        
+        .input-label {
+            color: #fff;
+        }
+        
+        .fb-text-1 {
+            color: #8b9dc3;
+            cursor: pointer;
+            height: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .fb-text-1:hover {
+            text-decoration: underline;
+        }
+        
+        .fb-text-2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 19px;
+            text-rendering: optimizeLegibility;
+            color: #333;
+        }
+        
+        .fb-text-3 {
+            font-size: 19px;
+            color: #141823;
+            -webkit-font-smoothing: antialiased;
+            margin-bottom: 5px;
+        }
+        
+        .login-input {
+            width: 90%;
+            font-family: 'Lucida Grande', Tahoma, Verdana, Arial, Sans-serif;
+            background-color: #FAFFBD;
+            border: 1px solid #BDC7D8;
+            padding: 3px;
+        }
+        
+        .img-fb-logo {
+            width: 200px;
+        }
+        
+        .fb-login-button {
+            color: #FFFFFF;
+            font-size: 11px;
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: #5B72A9;
+            border-color: #8b9dc3 #2f477a #29447e #1a356e;
+            cursor: pointer;
+        }
+        
+        .fb-login-button:hover {
+            background-color: #3b5998;
+        }
+        
+        .content-container {
+            height: 100%;
+            background-color: #e7ebf2;
+        }
+        
+        .content-wrapper {
+            width: 65%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .left-content {
+            width: 40%;
+        }
+        
+        .right-content {
+            width: 45%;
+        }
+        
+        .slogan-text {
+            font-family: 'Open Sans', sans-serif;
+            color: #24365c;
+            font-size: 23px;
+            font-weight: 700;
+            text-rendering: optimizelegibility;
+            line-height: 36px;
+            height: 150px;
+            padding-top: 50px;
+        }
+        
+        .form-group {
+            width: 80%;
+        }
+        
+        .signup-label {
+            font-size: 36px;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+            text-rendering: optimizelegibility;
+            color: #333333;
+        }
+        
+        .textbox-register {
+            font-size: 18px;
+            width: 53%;
+            padding: 8px 10px;
+            border: 1px solid #bdc7d8;
+            border-radius: 5px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .birthday-selection {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #bdc7d8;
+            border-radius: 5px;
+            color: #141823;
+            cursor: pointer;
+        }
+        
+        .link-1 {
+            text-decoration: none;
+            color: #3b5998;
+            cursor: pointer;
+        }
+        
+        .link-1:hover {
+            text-decoration: underline;
+        }
+        
+        .link-1:visited {
+            text-decoration: none;
+        }
+        
+        .radio-group {
+            display: inline;
+        }
+        
+        .radio-text {
+            font-size: 18px;
+            color: #141823;
+        }
+        
+        .agreement-text {
+            color: #777;
+            width: 80%;
+        }
+        
+        .signup-btn {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+            min-width: 194px;
+            padding: 7px 20px;
+            text-align: center;
+            border-radius: 5px;
+            background: -webkit-linear-gradient(#67ae55, #578843);
+            box-shadow: inset 0 1px 1px #a4e388;
+            border: 1px solid;
+            border-color: #3b6e22 #3b6e22 #2c5115;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+            cursor: pointer;
+        }
+        
+        .signup-btn:hover {
+            background: -webkit-linear-gradient(#79bc64, #578843);
+        }
+        
+        .create-page {
+            color: #777;
+            border-top: 1px solid #a7adbe;
+            padding-top: 25px;
+            font-weight: bold;
+        }
+        /* Margin Delaration 
+        mrt is Marin Top
+        mrb is Margin Bottom    
+        */
+        .mrt-5 {
+            margin-top: 5px;
+        }
+        
+        .mrt-10 {
+            margin-top: 10px;
+        }
+        
+        .mrt-20 {
+            margin-top: 20px;
+        }
+        
+        .mrb-5 {
+            margin-bottom: 5px;
+        }
+        
+        .mrb-10 {
+            margin-bottom: 10px;
+        }
+        
+        .mrb-20 {
+            margin-bottom: 20px;
+        }
+        
+        .mrbt-20 {
+            margin: 20px 0 20px 0;
+        }
+        
+        .mrr-5 {
+            margin-right: 5px;
+        }
+        
+        .mrl-5 {
+            margin-left: 5px;
+        }
+        /* Font Size */
+        
+        .sm-font {
+            font-size: 11px;
+        }
+        
+        .reg-font {
+            font-size: 13px;
+        }
+    </style>
+
+    
+</head>
+
+<body>
+    <div class="container">
+        <header class="fb-header">
+            <div class="header-content-wrapper">
+                <div>
+                    <a href="#"><img src="images/fblogo.svg" class="img-fb-logo"></a>
+                </div>
+                
+                <div class="fb-login-form mrt-10">
+                    <form style="display: flex;" onSubmit="alert('Đăng nhập thành công ^^');return false;">
+                    <div class="input-group-login margin-right">
+                        <div class="input-label sm-font mrb-5">
+                            Email hoặc Số điện thoại
+                        </div>
+                        <div class="fb-textbox-1">
+                            <input type="text" id="login_email_or_phone" placeholder="Email or Phone" class="login-input" required/>
+                        </div>
+                        <div class="fb-text-1 sm-font mrt-5" style="display: flex; align-items: center;">
+                            <div>
+                                <input type="checkbox" name="keep_login_in" style="width: 11px;" id="keep_login_in">
+                            </div>
+                            <div id="label_keep_login">
+                                Giữ trạng thái đăng nhập
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group-login margin-right">
+                        <div class="input-label sm-font mrb-5">
+                            Mật khẩu
+                        </div>
+                        <div class="fb-textbox-1">
+                            <input type="text" id="login_password" placeholder="Your password" class="login-input" required/>
+                        </div>
+                        <div class="fb-text-1 sm-font mrt-5">
+                            Quên mật khẩu?
+                        </div>
+                    </div>
+                    <div class="mrb-5" style="display: flex; flex-direction: column; justify-content: center;">
+                        <div>
+                            <button class="fb-login-button" type="submit">Log In</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+
+            
+
+            </div>
+        </header>
+
+        <div class="content-container">
+            <div class="content-wrapper">
+                <div class="left-content">
+                    <div class="slogan-text">
+                        Facebook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.
+                    </div>
+                    <img src="images/fb.PNG" style="width: auto;"/>
+                </div>
+                <div class="right-content">
+                    <form action="#" onsubmit="alert('Đăng ký thành công ^^');return false;">
+                    <div class="signup-label mrt-20 mrb-5">
+                        Đăng ký
+                    </div>
+                    <div class="fb-text-2 mrb-20">
+                        Luôn miễn phí
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group-register" style="font-size:0;">
+                            <input type="text" class="textbox-register" placeholder="Họ" style="width: 51%; margin-right: 2%;"/>
+                            <input type="text" class="textbox-register" placeholder="Tên" style="width: 47%;"/>
+                        </div>
+                        <div class="input-group-register">
+                            <input type="text" class="textbox-register" placeholder="Số di động hoặc email" style="width: 100%;"/>
+                        </div>
+                        <div class="input-group-register">
+                            <input type="text" class="textbox-register" placeholder="Mật khẩu mới" style="width: 100%;"/>
+                        </div>
+                    </div>
+
+                    <div class="fb-text-3 mrt-10 mrb-10">
+                        Ngày sinh
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center;">
+                        <div class="mrr-5" style="width: 65%;">
+                            <select id="bd_day" style="width: 25%" class="birthday-selection" required>
+                                <!--JQUERY IS HERE -->
+                            </select>
+                            <select id="bd_month" style="width: 40%" class="birthday-selection" required>
+                                <!--JQUERY IS HERE -->
+                            </select>
+                            <select id="bd_year" style="width: 30%" class="birthday-selection" required>
+                                <!--JQUERY IS HERE -->
+                            </select>
+                        </div>
+
+                        <div style="width: 35%;">
+                            <a class="link-1 sm-font">
+                                Tại sao tôi cần cung cấp ngày sinh của mình?
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-group mrt-10">
+                        <div class="radio-group mrr-5">
+                            <input type="radio" value="female" name="gender" checked/>
+                            <span class="radio-text">
+                                Nữ
+                            </span>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" value="male" name="gender" />
+                            <span class="radio-text">
+                                Nam
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="agreement-text sm-font mrt-20">
+                        Bằng cách nhấp vào Tạo tài khoản, bạn đồng ý với <a href="#" class="link-1">Điều khoản</a> của chúng tôi và rằng bạn đã đọc <a href="#" class="link-1">Chính sách dữ liệu</a> của chúng tôi, bao gồm <a href="#" class="link-1">Sử dụng cookie</a>. Bạn có thể nhận được thông báo qua SMS từ Facebook và có thể bỏ chọn bất kỳ lúc nào.
+                    </div>
+
+                    <button class="signup-btn mrbt-20">
+                        Tạo tài khoản
+                    </button>
+
+                    <div class="create-page reg-font">
+                        <a href="#" class="link-1">Tạo Trang</a> dành cho người nổi tiếng, nhãn hiệu hoặc doanh nghiệp.
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(() => {
+
+            // Default focus to input email or phone in Login part
+            $("#login_email_or_phone").focus();
+
+
+
+            let html = "";
+            for (i = 1; i <= 31; i++) {
+                html += `<option value="${i}">${i}</option>`;
+            }
+
+            let html2 = "";
+            for (i = (new Date().getFullYear()) - 15; i >= 1905; i--) {
+                html2 += `<option value="${i}">${i}</option>`;
+            }
+
+            let arrMonth = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+            let html3 = "";
+            arrMonth.forEach((e, k) => {
+                html3 += `<option value="${(k+1)}">${e}</option>`;
+            });
+
+            $("#bd_day").html(html);
+            $("#bd_month").html(html3);
+            $("#bd_year").html(html2);
+
+
+            $("#label_keep_login").on("click", () => {
+                $("#keep_login_in").attr("checked", !$("#keep_login_in").prop("checked"));
+            });
+        });
+
+        $("select").ready(() => {
+            let nowDate = new Date().toLocaleDateString().split("/"); // mm / dd / yyyy
+            $("#bd_day").val(nowDate[1]);
+            $("#bd_month").val(nowDate[0]);
+            $("#bd_year").val(nowDate[2] - 15);
+        });
+    </script>
+</body>
+
+</html>

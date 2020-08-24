@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your Google Account</title>
+    <link rel="stylesheet" type='text/css' href="https://fonts.googleapis.com/css?family=Roboto:100,300"/>
+    <link rel="stylesheet" type='text/css' href="plugins/intl-tel-input/build/css/intlTelInput.css"/>
+    <link rel="stylesheet" type='text/css' href="plugins/intl-tel-input/build/css/demo.css"/>
+    <script src="plugins/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <script src="plugins/intl-tel-input/build/js/intlTelInput.js"></script>
+    <style>
+        /*
+        Override something
+        */
+        .iti {
+            width: 100%;
+        }
+        a:link, a:visited {
+            text-decoration: none;
+            color: #3079ed;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #5390f3; 
+        }
+        input {
+            font-size: 12px;
+        }
+
+
+
+        html, body {
+            height: 100vh;
+            font-family: Roboto;
+        }
+        header {
+            text-align: center; 
+            font-family: Roboto; 
+            font-size: 45px;
+            font-weight:300; 
+            -webkit-font-smoothing: antialiased;
+        }
+        .mr-auto {
+            margin: auto;
+        }
+        .mrb-10 {
+            margin-bottom: 10px;
+        }
+        .mrb-20 {
+            margin-bottom: 20px;
+        }
+        .mrb-40 {
+            margin-bottom: 40px;
+        }
+        .mrt-20 {
+            margin-top: 20px;
+        }
+        .mrt-40 {
+            margin-top: 40px;
+        }
+        .mrr-30 {
+            margin-right: 30px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-1 {
+            font-family: Roboto;
+            font-weight: 300;
+            font-size: 23px;
+        }
+        .text-2 {
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .google-icon-wrapper {
+            display: flex; 
+            justify-content: center;
+        }
+        .google-icon {
+            height: 30px;
+        }
+
+
+        .device-mockup {
+            position: relative;
+            width: 80%;
+            height: 100px;
+            margin: auto;
+        }
+
+        .macbook-pro-black {
+            position: absolute;
+            width: 350px;
+            height: 250px;
+            background-image: url('images/macbookpro.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            color: #000; 
+            z-index: 0;
+        }
+        .bg-in-macbook {
+            position: absolute; 
+            width: 270px; 
+            height: inherit; 
+            top: 20px; 
+            left: 40px; 
+            z-index: 1; 
+            color: #fff;background-image: url('images/googleMapInChrome.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            border-radius: 5px;
+        }
+        
+        .galaxyS3 {
+            position: absolute; 
+            width: 80px; 
+            height: 150px; 
+            background-image: url('images/galaxyS3.png'); 
+            background-size: contain;
+            background-repeat: no-repeat; 
+            left: 267px; 
+            top: 65px; 
+            z-index: 2;
+        }
+
+        .bg-in-galaxyS3 {
+            position: absolute;
+            width: 67px;
+            top: 14px;
+            left: 5px;
+            border-radius: 2px;
+            height: inherit;
+            background-image: url('images/googleMapsInSmartPhone.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .ipad-air2 {
+            position: absolute; 
+            width: 143px; 
+            height: 220px; 
+            background-image: url('images/iPadAir2_gold.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat;
+            left: 330px; 
+            top: 0px; 
+            z-index: 1;
+        }
+
+        .bg-in-ipad-air2 {
+            position: absolute;
+            width: inherit;
+            top: -36px;
+            left: 9px;
+            border-radius: 2px;
+            height: inherit;
+            background-image: url('images/googleMapInIPad.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 0px 55px;
+        }
+    
+
+
+        /* Right Content*/
+        .right-content {
+            width: 30%; 
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .text-label {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .register-wrapper {
+            display: flex; 
+            height: inherit; 
+            justify-content: space-evenly;
+        }
+        .register-form {
+            background-color: #ebebeb;
+        }
+
+        input[type="email"]::placeholder {
+            text-align: right;
+        }
+        .birthday-wrapper {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+        }
+
+        select option {
+            background-color: #fff;
+        }
+        .select-custom-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .select-custom-wrapper select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            
+            display: block;
+            width: 100%;
+            height: 35px;
+            float: right;
+            margin: 5px 0px;
+            padding: 0px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.75;
+            color: #333;
+            background-color: #ebebeb;
+            background-image: none;
+            border: 1px solid #cccccc;
+            -ms-word-break: normal;
+            word-break: normal;
+        }
+        .select-custom-wrapper:after {
+            content: '◀▶';
+            font: 9px "Consolas", monospace;
+            color: #333;
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            
+            right: 11px;
+            
+            top: 18px;
+            padding: 0 0 2px;
+            
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .nextstep-btn {
+            font-size: 11px; 
+            font-weight: bold;
+            background-color: #4787ed; 
+            border: 1px solid #3079ed;
+        }
+
+        footer {
+            border-top: 2px solid rgb(223, 223, 223); 
+            width: 80%; 
+            margin: 30px auto auto auto;
+            text-align: center; 
+            font-weight: bold; 
+            padding: 20px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="website-container" style="height: inherit;">
+    <header>
+        Create your Google Account
+    </header>
+    <div class="register-wrapper">
+        <div class="left-content" style="width: 40%;">
+            <div class="text-1 text-center mrb-10 mrt-40">
+                One account is all you need
+            </div>
+            <div class="text-2 text-center">
+                One free account gets you into everything Google.
+            </div>
+            <div class="google-icon-wrapper mrt-40 mrb-40">
+                <img src="images/search.png" class="google-icon mrr-30"/>
+                <img src="images/gmail.png" class="google-icon mrr-30"/>
+                <img src="images/maps.png" class="google-icon mrr-30"/>
+                <img src="images/youtube.png" class="google-icon mrr-30"/>
+                <img src="images/googledrive.png" class="google-icon mrr-30"/>
+                <img src="images/googlephoto.png" class="google-icon mrr-30"/>
+                <img src="images/googleplay.png" class="google-icon mrr-30"/>
+                <img src="images/googlechrome.png" class="google-icon"/>
+            </div>
+            <div class="text-1 text-center mrb-10">
+                Take it all with you
+            </div>
+            <div class="text-2 text-center mrb-40">
+                Switch between devices, and pick up wherever you left off.
+            </div>
+            <div class="device-mockup">
+                <div class="macbook-pro-black">
+                    <div class="bg-in-macbook">
+                    </div>
+                </div>
+        
+                <div class="galaxyS3">
+                    <div class="bg-in-galaxyS3">
+                    </div>
+                </div>
+        
+                <div class="ipad-air2">
+                    <div class="bg-in-ipad-air2">
+        
+                    </div>
+                </div>   
+            </div>
+        </div>
+
+        <div class="right-content">
+            <form action="#" onsubmit="alert('Đăng ký thành công');return false">
+            <div class="register-form mrt-40">
+                <div class="register-form-wrapper" style="width: 70%; margin: auto;">
+                    <div class="text-label" style="padding-top: 20px">Name</div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <input type="text" id="firstname" name="firstname" placeholder="First" style="width: 48.5%;" required/>
+                        <input type="text" id ="lastname" name="lastname" placeholder="Last" style="width: 48.5%;" required/>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Choose your username</div>
+                    <div>
+                        <input type="email" id="username" name="username" placeholder="@gmail.com" style="width: 100%;" required/>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Create a password</div>
+                    <div>
+                        <input type="password" id="password" name="password" placeholder="Your password" style="width: 100%;" required/>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Confirm your password</div>
+                    <div>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" style="width: 100%;" required/>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Birthday</div>
+                    <div class="birthday-wrapper">
+                        <div style="width: 45%;">
+                            <div class="select-custom-wrapper" style="display: flex">
+                                <select id="bd_month" name="bd_month" required>
+                                    <option value="">Month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" id="bd_day" name="bd_day" placeholder="Day" style="width: 20%;" required/>
+                        <input type="text" id="bd_year" name="bd_year" placeholder="Year" style="width: 30%" required/>
+                        
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Gender</div>
+                    <div class="select-custom-wrapper">
+                        <select id="gender" name="gender" style="width: 100%;" required>
+                            <option value="">I am ...</option>
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Mobile phone:</div>
+                    <div id="phone_input">
+                        <input id="phone" name="phone" type="tel" value ="+1" style="width: 100%;" required/>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Your current email address</div>
+                    <div>
+                        <input id="email" name="email" type="email" style="width: 100%" required/>
+                    </div>
+
+                    <div class="text-label" style="padding-top: 15px">Location</div>
+                    <div class="select-custom-wrapper">
+                        <select id="select_location" name="select_location" required/>
+                            <option>Vietnam</option>
+                            <option>US</option>
+                        </select>
+                    </div>
+
+                    <div style="text-align: right; padding: 10px 0px">
+                        <button type="submit" class="nextstep-btn">Next step</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="#" class="">Learn more</a> about why we ask for this information.
+            </div>
+        </form>
+        </div>
+
+    </div>
+    
+    <footer>
+        Copyright &copy; 2020 Google
+    </footer>
+</div>
+
+<script>
+    
+    $(document).ready(() => {
+        // Auto-focus first name input when document loaded
+        $("#firstname").focus();
+    });
+
+
+var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+      autoHideDialCode: false,
+      autoPlaceholder: "on",
+      placeholderNumberType: "MOBILE",
+      utilsScript: "plugins/intl-tel-input/build/js/utils.js",
+    });
+
+    $(".iti__flag-container > ul > li").on("click",(e) => {
+        $("#phone").val("+"+e.currentTarget.dataset.dialCode);
+    });
+</script>
+
+</body>
+</html>
