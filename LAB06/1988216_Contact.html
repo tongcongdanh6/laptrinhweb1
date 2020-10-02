@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            height: 100%;
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+
+        input,
+        textarea {
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            border: 1px solid rgb(114, 186, 204);
+            margin-bottom: 5px;
+            padding: 5px 3px;
+        }
+
+        h3 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        button {
+            border: none;
+            background-color: rgb(114, 186, 204);
+            padding: 5px 15px;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #frm-contact-wrapper {
+            background-color: aliceblue;
+            border-radius: 15px;
+            width: 30%;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="frm-contact-wrapper">
+            <h3>Contact Us</h3>
+            <form method="POST" id="frm-contact">
+                <input id="name" name="name" type="text" placeholder="Name" oninput="this.setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('Please enter your name!')" autocomplete="off" required>
+                <input id="email" name="email" type="email" placeholder="Email"
+                    pattern="[a-z0-9._%+-]+@[a-z09.-]+\.[a-z]{2,3}$" autocomplete="off" required>
+                <input id="subject" name="subject" type="text" placeholder="Subject" pattern="[a-zA-Z0-9]+"
+                    autocomplete="off" required>
+                <textarea id="message" name="message" placeholder="" rows="7"></textarea>
+                <button type="submit" style="float: right;">Send</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

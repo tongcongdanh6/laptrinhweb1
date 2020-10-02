@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", sans-serif;
+            background: url('images/macos_bg.jpg');
+            background-size: cover;
+            background-position: top center;
+        }
+
+        .login-wrap {
+            width: 290px;
+            height: 320px;
+            margin: 15% auto 0;
+            position: relative;
+        }
+
+        .login {
+            display: block;
+            margin: auto;
+            padding: 40px 40px 30px;
+            position: absolute;
+            background-color: #f8f8f8;
+            background-image: -webkit-linear-gradient(top, #f0f0f0, #ddd);
+            background-image: -moz-linear-gradient(top, #f0f0f0, #ddd);
+            background-image: linear-gradient(top, #f0f0f0, #ddd);
+            border-radius: 5px;
+            border:  1px #fff solid;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 20px;
+            text-align: center;
+        }
+
+        .avatar {
+            display: block;
+            margin: 0 auto 15px;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            border: 3px #fff solid;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, inset rgba(0, 0, 0, 0.4) 0px 3px 2px;
+            overflow: hidden;
+            background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 50%), url("images/user_mac.jpg");
+            background-image: -moz-linear-gradient(top left, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 50%), url("images/user_mac.jpg");
+            background-image: linear-gradient(top left, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 50%), url("images/user_mac.jpg");
+            background-size: cover;
+        }
+
+        .user {
+            padding: 10px 0;
+            font-size: 0.95em;
+            text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 0px;
+        }
+
+        input {
+            display: block;
+            width: 170px;
+            margin: 20px auto;
+            padding: 10px 25px 10px 10px;
+            border-radius: 3px;
+            border: 1px #CCC solid;
+        }
+
+        button {
+            background-color: #f0f0f0;
+            border: 1px #dbdbdb solid;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+
+        .login-form {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-wrap">
+        <div class="login">
+            <div class="avatar">
+            </div>
+            <span class="user">MAC User</span>
+            <form id="login" method="POST" class="login-form" onsubmit="event.preventDefault();">
+                <input type="text" name="user" placeholder="Username" autocomplete="off" required />
+                <input type="password" name="pass" placeholder="Password" autocomplete="off" required />
+                <button>LOGIN</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    $("#login").on('submit',() => {
+        alert("Authentication was failed!!!");
+    });
+</script>
+
+</html>
