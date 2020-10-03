@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+
+        .register-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-group {
+            padding-top: 3%;
+            padding-bottom: 3%;
+            background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+            border-radius: 15px;
+        }
+
+        .register-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            margin-top: 4%;
+        }
+
+        .left-content {
+            padding: 3%;
+        }
+
+        .register-right {
+            background: #f8f9fa;
+            border-top-left-radius: 10% 50%;
+            border-bottom-left-radius: 10% 50%;
+            padding: 30px 60px;
+        }
+
+        .register-heading {
+            text-align: center;
+            color: #495057;
+        }
+
+        .btn-register {
+            margin-top: 5%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: #0062cc;
+            color: #fff;
+            font-weight: 600;
+            width: 25%;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            background: #0079fa;
+        }
+
+        .modalText {
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container register-wrapper">
+        <div class="row register-group">
+            <div class="col-md-3 register-left">
+                <div class="left-content">
+                    <h3>Join Our Team</h3>
+                    <p>Join our team today to get more money ^^</p>
+                </div>
+            </div>
+            <div class="col-md-9 register-right">
+                <h3 class="register-heading pb-5">Register your account</h3>
+                <div class="row register-form">
+                    <div class="col-md-12">
+                        <form id="frm-register" method="POST">
+                            <div class="form-group pb-2">
+                                <input type="text" id="username" name="username" class="form-control" autocomplete="off"
+                                    placeholder="Username*" required>
+                            </div>
+                            <div class="form-group pb-2">
+                                <input type="password" id="password" name="password" class="form-control"
+                                    autocomplete="off" placeholder="Password*" required>
+                            </div>
+                            <div class="form-group pb-2">
+                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                                    autocomplete="off" placeholder="Confirm your password*" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="form-control" autocomplete="off"
+                                    placeholder="Your Email*" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                    required>
+                            </div>
+                            <small style="color:#ff0000">(*) is required</small><br />
+                            <small>By clicking <b>Register</b> button. It means you accepted with our Policy &
+                                Terms.</small>
+                            <button type="submit" class="btn-register float-right">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $("#frm-register").on('submit', (event) => {
+            event.preventDefault();
+            alert("Registered successfully!");
+        });
+        
+        //Self-Invoke Function
+
+        (function(){
+            $('#username').focus();
+            var password = document.getElementById("password");
+            var confirmPassword = document.getElementById("confirmPassword");
+
+            var checkSamePassword = function() {
+                if(password.value != confirmPassword.value) {
+
+                    // Remove all setCustomvalidity all input
+                    password.setCustomValidity('');
+                    confirmPassword.setCustomValidity('');
+                    
+
+                    let errorTxt = "Your password must match!!";
+                    $('.modalText').remove();
+
+                    let html = `<div class='modalText alert alert-danger mt-2'>${errorTxt}</div>`;
+                    $(this).parent().append(html);
+
+                    this.setCustomValidity(errorTxt);
+                }
+                else {
+                    $('.modalText').remove();
+                    // Remove all setCustomvalidity all input
+                    password.setCustomValidity('');
+                    confirmPassword.setCustomValidity('');
+                }
+            }
+
+            password.onchange = checkSamePassword;
+            confirmPassword.onchange = checkSamePassword;
+        }());
+        
+    </script>
+
+</body>
+
+</html>
