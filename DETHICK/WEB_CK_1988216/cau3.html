@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,bold"
+        type="text/css">
+    <link rel="stylesheet" href="css/1988216.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <div class="text-1">BAI THI CUOI KY MON LAP TRINH WEB 1</div>
+            <div class="large-text">DTTX - HK2/2019-2020</div>
+        </div>
+
+        <div id="nav">
+            <ul>
+                <li><a href="index.html">CAU 1</a></li>
+                <li><a href="cau2.html">CAU 2</a></li>
+                <li class="active">CAU 3</li>
+            </ul>
+        </div>
+
+        <div id="menu">
+            <!-- <div class="item-container" style="background: url('/img/products-01.jpg') no-repeat; background-size: contain;">
+                <div class="menu-card slogan-right">
+                    <span class="text-bold">Blended to Perfection</span><br>
+                    <span class="text-large-thin">Coffees &amp; Teas</span>
+                </div>
+            </div> -->
+
+            <!-- <div class="item-container" style="background: url('/img/products-02.jpg') no-repeat; background-size: contain;">
+                <div class="menu-card slogan-left">
+                    <span class="text-bold">Blended to Perfection</span><br>
+                    <span class="text-large-thin">Coffees &amp; Teas</span>
+                </div>
+            </div>
+
+            <div class="item-container" style="background: url('/img/products-03.jpg') no-repeat; background-size: contain;">
+                <div class="menu-card slogan-right">
+                    <span class="text-bold">Blended to Perfection</span><br>
+                    <span class="text-large-thin">Coffees &amp; Teas</span>
+                </div>
+            </div> -->
+        </div>
+
+        <div id="footer">
+            Copyright &copy; by 1988216 - Tống Công Danh
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="vendor/handlebarjs/handlebars-v4.7.6.js"></script>
+    <script src="vendor/data.js"></script>
+
+    <script id="menu-templates" type="text/x-handlebars-template">
+        {{#each data}}
+
+            {{#if_even @index}}
+                <div class="item-container" style="background: url('{{imagepath}}') no-repeat; background-size: contain;">
+                    <div class="menu-card slogan-right">
+                        <span class="text-bold">{{{slogan}}}</span><br>
+                        <span class="text-large-thin">{{{title}}}</span>
+                    </div>
+                </div>
+            {{else}}
+                <div class="item-container" style="background: url('{{imagepath}}') no-repeat; background-size: contain;">
+                    <div class="menu-card slogan-left">
+                        <span class="text-bold">{{{slogan}}}</span><br>
+                        <span class="text-large-thin">{{{title}}}</span>
+                    </div>
+                </div>
+            {{/if_even}}
+        {{/each}}
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            Handlebars.registerHelper('if_even', function (conditional, options) {
+                if ((conditional % 2) == 0) {
+                    return options.fn(this);
+                } else {
+                    return options.inverse(this);
+                }
+            });
+
+
+            let data = {
+                data: getData()
+            };
+            console.log(data);
+            let source = $("#menu-templates").html();
+            let target = $("#menu");
+            let template = Handlebars.compile(source);
+            $(target).html(template(data));
+        });
+    </script>
+</body>
+
+</html>

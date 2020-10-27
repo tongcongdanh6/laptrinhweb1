@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,bold" type="text/css">
+    <link rel="stylesheet" href="css/1988216.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <div class="text-1">BAI THI CUOI KY MON LAP TRINH WEB 1</div>
+            <div class="large-text">DTTX - HK2/2019-2020</div>
+        </div>
+
+        <div id="nav">
+            <ul>
+                <li><a href="index.html">CAU 1</a></li>
+                <li class="active">CAU 2</li>
+                <li><a href="cau3.html">CAU 3</a></li>
+            </ul>
+        </div>
+
+        <div id="content-wrapper">
+            <div class="form-wrapper">
+                <div id="frm-msg">
+                    <form method="POST" action="#" onsubmit="return false;">
+                        <div class="text-bold">YOUR MESSAGE</div>
+                        <div class="text-large-thin">TO WEB 1</div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="input" name="name" oninput="this.setCustomValidity('');" oninvalid="this.setCustomValidity('Please enter your name')" placeholder="Your Name *" required>
+                                <input type="email" class="input" name="email" oninput="this.setCustomValidity('');" oninvalid="this.setCustomValidity('Please enter your email address')" placeholder="Your Email *" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                                <input type="tel" class="input" name="phone" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter your phone number')" placeholder="Your Phone *" pattern="^[0-9]{11}$" required>
+                            </div>
+                            <div class="col">
+                                <textarea class="input" name="message" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please enter your message')" placeholder="Your Message *" rows="7" required></textarea>
+                            </div>
+                        </div>
+                        <button class="send-msg-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            Copyright &copy; by 1988216 - Tống Công Danh
+        </div>
+    </div>
+</body>
+</html>
