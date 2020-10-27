@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/1988216.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,bold">
+</head>
+
+<body>
+  <div class="container-fluid text-center py-5">
+    <div class="text-bolder">BAI THI CUOI KY MON LAP TRINH WEB 1</div>
+    <div class="text-large-thin-1">DTTX - HK2/2019-2020</div>
+  </div>
+
+
+  <div class="container-fluid py-4" id="nav">
+    <ul class="nav justify-content-center">
+      <li class="nav-item pr-4">
+        <a class="nav-link" href="index.html">CAU 1</a>
+      </li>
+      <li class="nav-item pr-4">
+        <a class="nav-link" href="cau2.html">CAU 2</a>
+      </li>
+      <li class="nav-item pr-4">
+        <a class="nav-link active" href="#">CAU 3</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid" id="menu">
+
+
+
+  </div>
+
+  <div class="container-fluid footer text-center">
+    <div>Copyright &copy; by 1988216 - Tống Công Danh</div>
+  </div>
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="vendor/handlebarjs/handlebars-v4.7.6.js"></script>
+  <script src="vendor/data.js"></script>
+
+  <script id="menu-templates" type="text/x-handlebars-template">
+    {{#each data}}
+
+        {{#if_even @index}}
+          <div class="row product justify-content-center my-6">
+            <img src="{{imagepath}}" class="img-fluid img-responsive" width="500" alt="">
+            <div class="slogan pos-right">
+              <span class="h6">{{{slogan}}}</span><br/>
+              <span class="text-large-thin-3">{{{title}}}</span>
+            </div>
+          </div>
+        {{else}}
+          <div class="row product justify-content-center">
+            <img src="{{imagepath}}" class="img-fluid img-responsive" width="500" alt="">
+            <div class="slogan pos-left">
+              <span class="h6">{{{slogan}}}</span><br/>
+              <span class="text-large-thin-3">{{{title}}}</span>
+            </div>
+          </div>
+        {{/if_even}}
+    {{/each}}
+</script>
+
+  <script>
+    $(document).ready(function () {
+      Handlebars.registerHelper('if_even', function (conditional, options) {
+        if ((conditional % 2) == 0) {
+          return options.fn(this);
+        } else {
+          return options.inverse(this);
+        }
+      });
+
+
+      let data = {
+        data: getData()
+      };
+      console.log(data);
+      let source = $("#menu-templates").html();
+      let target = $("#menu");
+      let template = Handlebars.compile(source);
+      $(target).html(template(data));
+    });
+  </script>
+</body>
+
+</html>

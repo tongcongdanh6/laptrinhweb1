@@ -1,0 +1,119 @@
+html, body {
+    background: url("../img/bg.jpg") repeat;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.text-bolder {
+    color: #E6A756;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.text-large-thin-1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 100;
+}
+
+.text-large-thin-2 {
+    color: rgb(70, 70, 70);
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.text-large-thin-3 {
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    font-weight: 100;
+}
+
+
+#nav {
+    background-color: rgba(47, 23, 15, 0.9);
+}
+
+#nav ul li a {
+    color: #fff;
+    font-weight: bold;
+}
+
+#nav ul li a:hover {
+    color: #E6A756;
+    text-decoration: none;
+}
+
+#nav ul li a.active {
+    color: #E6A756;
+}
+
+#content {
+    background: url("../img/about.jpg") no-repeat;
+    background-size: contain;
+    height: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#content .slogan {
+    background: rgba(255,255,255,0.85);
+    width: 70%;
+    position: absolute;
+    bottom: -40%;
+    left: 12%;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+
+.footer {
+    background-color: rgba(47, 23, 15, 0.9);
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+}
+
+
+#form-wrapper {
+    background: #E6A756;
+}
+
+#form-container {
+    background: #eee3d5;
+    border: 8px #E6A756 double;
+    border-radius: 10px;
+}
+
+.send-msg-btn {
+    background: #E6A756;
+    color: #fff;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.product {
+    position: relative;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.slogan {
+    background-color: rgba(255,255,255,0.85);
+    position: absolute;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.pos-left {
+    top: -20%;
+    right: 55%;
+}
+
+.pos-right {
+    top: -20%;
+    left: 55%;
+}
