@@ -1,0 +1,171 @@
+html, body {
+    margin: 0;
+    background: url("../img/bg.jpg") repeat-y;
+    font-family: "Raleway", sans-serif;
+}
+
+p {
+    line-height: 1.5;
+}
+
+
+.text-bold-small {
+    font-family: "Montserrat", sans-serif;
+    color: #E6A756;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.text-small-bolder-2 {
+    font-family: "Montserrat", sans-serif;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.text-large-thin {
+    font-family: "Raleway", sans-serif;
+    color: #fff;
+    font-weight: 100;
+    font-size: 60px;
+}
+
+.text-large-thin-2 {
+    font-family: "Raleway", sans-serif;
+    color: #000;
+    font-weight: 100;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.text-large-thin-3 {
+    font-family: "Raleway", sans-serif;
+    color: #000;
+    font-weight: 100;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.text-copyright {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;   
+    color: #fff;
+}
+
+.line-height-1 {
+    line-height: 1;
+}
+
+
+
+/* NAV */
+#nav {
+    background-color: rgba(47, 23, 15, 0.9);
+}
+
+#nav ul li a {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+}
+
+#nav ul li a:hover{
+    color: #E6A756;
+}
+
+#nav ul li a.active {
+    color:  #E6A756;
+}
+
+
+
+#main-content {
+    position: relative;
+}
+
+#main-content img {
+    border-radius: 5px;
+}
+
+.overlay-main-content {
+    position: absolute;
+    bottom: -185px;
+    left: 10%;
+    padding: 30px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+}
+
+
+/* CAU 2 */
+#form-container {
+    background-color: #E6A756;
+    padding: 80px;
+}
+
+#form-wrapper {
+    background-color: #e4d8c8;
+    padding: 60px;
+    border: 10px #E6A756 double;
+    border-radius: 5px;
+}
+
+.send-msg-btn {
+    font-family: "Karma", sans-serif;
+    text-transform: uppercase;
+    background: #E6A756;
+    color: #fff;
+    font-size: 13px;
+    padding: 20px;
+    font-weight: bold;
+    border: 1px #E6A756 solid;
+    border-radius: 5px;
+}
+
+input, textarea {
+    font-family: "Karma", sans-serif;
+}
+
+
+/* CAU 3 */
+
+.slogan {
+    top: -85px;
+    position: absolute;
+    width: fit-content;
+    padding: 30px 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+    border-radius: 5px;
+    line-height: 1;
+}
+
+.product {
+    margin-top: 150px;
+}
+
+.pos-right {
+    right: 25%;
+}
+
+.pos-left {
+    left: 30%;
+}
+
+
+
+/* FOOTER */
+footer {
+    background-color: rgba(47, 23, 15, 0.9);
+}
+
+.footer-fix-bot {
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+

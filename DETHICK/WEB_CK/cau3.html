@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Demo Web CK</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- GOOGLE FONT APIS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,bold">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,bold"
+        type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,bold"
+        type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma:100,200,300,400,500,bold"
+        type="text/css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="container-fluid text-center py-5">
+        <div class="text-bold-small">BAI THI CUOI KY MON LAP TRINH WEB 1</div>
+        <div class="text-large-thin">DTTX - HK2/2019-2020</div>
+    </div>
+    <!-- ./HEADER -->
+
+    <!-- NAV -->
+    <div class="container-fluid py-3" id="nav">
+        <ul class="nav justify-content-center">
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="index.html">CAU 1</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="cau2.html">CAU 2</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link active" href="#">CAU 3</a>
+            </li>
+        </ul>
+    </div>
+    <!-- ./NAV -->
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container-fluid my-5" id="menu">
+        <div class="row product">
+            <div class="col text-center">
+                <img src="img/products-01.jpg" width="500px">
+                <div class="slogan pos-right">
+                    <span class="text-small-bolder-2">Test</span><br />
+                    <span class="text-large-thin-3">Tsest</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row product">
+            <div class="col text-center">
+                <img src="img/products-02.jpg" width="500px">
+                <div class="slogan pos-right">
+                    <span class="text-small-bolder-2">Test</span><br />
+                    <span class="text-large-thin-3">Tsest</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row product">
+            <div class="col text-center">
+                <img src="img/products-03.jpg" width="500px">
+                <div class="slogan pos-right">
+                    <span class="text-small-bolder-2">Test</span><br />
+                    <span class="text-large-thin-3">Tsest</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ./MAIN CONTENT -->
+
+
+    <footer class="container-fluid text-center py-4">
+        <div class="text-copyright">Copyright &copy; by MSSV - Ho Ten</div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/handlebarjs/handlebars-v4.7.6.js"></script>
+    <script src="vendor/data.js"></script>
+
+
+    <script id="menu-templates" type="text/x-handlebars-template">
+    {{#each data}}
+
+        {{#if_even @index}}
+            <div class="row product">
+                <div class="col text-center">
+                    <img src="{{imagepath}}" width="500px">
+                    <div class="slogan pos-right">
+                        <span class="text-small-bolder-2">{{{slogan}}}</span><br/>
+                        <span class="text-large-thin-3">{{{title}}}</span>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="row product">
+                <div class="col text-center">
+                    <img src="{{imagepath}}" width="500px">
+                    <div class="slogan pos-left">
+                        <span class="text-small-bolder-2">{{{slogan}}}</span><br/>
+                        <span class="text-large-thin-3">{{{title}}}</span>
+                    </div>
+                </div>
+            </div>
+        {{/if_even}}
+    {{/each}}
+</script>
+
+    <script>
+        $(document).ready(function () {
+            Handlebars.registerHelper('if_even', function (conditional, options) {
+                if ((conditional % 2) == 0) {
+                    return options.fn(this);
+                } else {
+                    return options.inverse(this);
+                }
+            });
+
+
+            let data = {
+                data: getData()
+            };
+            let source = $("#menu-templates").html();
+            let target = $("#menu");
+            let template = Handlebars.compile(source);
+            $(target).html(template(data));
+        });
+    </script>
+</body>
+
+</html>
